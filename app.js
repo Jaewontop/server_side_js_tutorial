@@ -12,6 +12,18 @@ app.get("/template", function (req, res) {
 
 app.use(express.static("public")); //public이라는 디렉토리를 정적인 파일이 위치하는 디렉토리로 하겠다!
 
+app.get("/topic", function (req, res) {
+  const topics = ["javascript is....", "Nodejs is....", "Express is...."];
+  var output = `
+  <a href="/topic?id=0">Javascript</a><br/>
+  <a href="/topic?id=1">NodeJs</a><br/>
+  <a href="/topic?id=2">Express</a><br/><br/>
+  ${topics[req.query.id]}
+  `;
+
+  res.send(output);
+});
+
 app.get("/", function (req, res) {
   res.send("hello homepage");
 }); //라우팅

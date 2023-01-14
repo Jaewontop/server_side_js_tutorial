@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Jaewontop/server_side_js_tutorial#readme",
   "dependencies": {
+    "express": "^4.18.2",
     "underscore": "^1.13.6"
   }
 }

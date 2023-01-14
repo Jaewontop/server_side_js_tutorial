@@ -11,3 +11,7 @@ http
   .listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
   });
+
+//추상화하면 아래 처럼
+var server = http.createServer();
+server.listen();

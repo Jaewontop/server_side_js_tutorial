@@ -1,6 +1,15 @@
 const express = require("express");
 var app = express();
 
+app.locals.pretty = true; //마크업을 이쁘게 볼 수 있음
+
+app.set("view engine", "jade"); //jade로 view engine을 바꾼다
+app.set("views", "./views"); //views 폴더를 참조하겠다
+
+app.get("/template", function (req, res) {
+  res.render("temp", { time: Date(), _title: "Jade" }); //template으로 라우팅했을 때 views 폴더 안에 있는 temp.jade 파일을 렌더링한다. 그리고 time, _title 이라는 변수를 전달한다.
+});
+
 app.use(express.static("public")); //public이라는 디렉토리를 정적인 파일이 위치하는 디렉토리로 하겠다!
 
 app.get("/", function (req, res) {

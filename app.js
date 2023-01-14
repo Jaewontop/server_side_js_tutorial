@@ -1,7 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: false }));
+
 var app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.locals.pretty = true; //마크업을 이쁘게 볼 수 있음
 

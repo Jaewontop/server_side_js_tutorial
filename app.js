@@ -12,6 +12,14 @@ app.get("/template", function (req, res) {
 
 app.use(express.static("public")); //public이라는 디렉토리를 정적인 파일이 위치하는 디렉토리로 하겠다!
 
+app.get("/form", function (req, res) {
+  res.render("form");
+});
+
+app.get("/form_receiver", function (req, res) {
+  res.send(req.query.title + "," + req.query.description);
+});
+
 app.get("/topic", function (req, res) {
   const topics = ["javascript is....", "Nodejs is....", "Express is...."];
   var output = `

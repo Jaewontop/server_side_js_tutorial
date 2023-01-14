@@ -24,6 +24,10 @@ app.get("/topic", function (req, res) {
   res.send(output);
 });
 
+app.get("/topic/:id/:mode", function (req, res) {
+  res.send(req.params.id + "," + req.params.mode);
+});
+
 app.get("/", function (req, res) {
   res.send("hello homepage");
 }); //라우팅

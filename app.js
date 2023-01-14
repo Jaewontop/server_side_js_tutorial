@@ -1,4 +1,6 @@
 const express = require("express");
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: false }));
 var app = express();
 
 app.locals.pretty = true; //마크업을 이쁘게 볼 수 있음
@@ -18,6 +20,12 @@ app.get("/form", function (req, res) {
 
 app.get("/form_receiver", function (req, res) {
   res.send(req.query.title + "," + req.query.description);
+});
+
+app.post("/form_receiver", function (req, res) {
+  var title = req.body.title;
+  var description = req.body.description;
+  res.send(title + "," + description);
 });
 
 app.get("/topic", function (req, res) {
